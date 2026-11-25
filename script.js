@@ -42,3 +42,26 @@ function showSlides() {
   dots[slideIndex - 1].className += " active";
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
+
+// Responsive navigation menu
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function () {
+  const menuIsOpen = navLinks.classList.toggle("open");
+
+  menuToggle.setAttribute("aria-expanded", menuIsOpen);
+  menuToggle.setAttribute(
+    "aria-label",
+    menuIsOpen ? "Close navigation menu" : "Open navigation menu",
+  );
+});
+
+// Close the menu after selecting a link
+navLinks.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", function () {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation menu");
+  });
+});
