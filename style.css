@@ -376,6 +376,107 @@ section {
   color: var(--muted);
 }
 
+.timeline {
+  position: relative;
+  margin-top: 3rem;
+}
+.timeline-line {
+  position: absolute;
+  left: 1.5rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    hsla(160, 90%, 50%, 0.6),
+    hsla(280, 90%, 65%, 0.6),
+    hsla(35, 95%, 60%, 0.6),
+    hsla(190, 90%, 55%, 0.6),
+    hsla(160, 90%, 50%, 0.6),
+    hsla(280, 90%, 65%, 0.6),
+    hsla(35, 95%, 60%, 0.6),
+    hsla(190, 90%, 55%, 0.6)
+  );
+}
+.timeline-item {
+  position: relative;
+  padding-left: 4rem;
+  margin-bottom: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.timeline-node {
+  position: absolute;
+  left: 1.5rem;
+  top: 0.25rem;
+  transform: translateX(-50%);
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 2px solid hsla(160, 84%, 39%, 0.5);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 0.85rem;
+  box-shadow:
+    0 0 20px hsla(160, 90%, 50%, 0.4),
+    0 0 40px hsla(280, 90%, 65%, 0.2);
+  z-index: 2;
+}
+.timeline-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+.timeline-period {
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+.timeline-title {
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.timeline-org {
+  margin-top: 0.125rem;
+  font-size: 0.875rem;
+  color: var(--primary);
+}
+.timeline-desc {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+@media (min-width: 768px) {
+  .timeline-line {
+    left: 50%;
+  }
+  .timeline-item {
+    padding-left: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3.5rem;
+  }
+  .timeline-node {
+    left: 50%;
+  }
+  .timeline-item.left .timeline-card {
+    grid-column: 1;
+    text-align: right;
+    margin-right: 1rem;
+  }
+  .timeline-item.right .timeline-card {
+    grid-column: 2;
+    text-align: left;
+    margin-left: 1rem;
+  }
+}
+
 /* ── Projects ── */
 .projects-grid {
   margin-top: 2.5rem;
@@ -502,7 +603,6 @@ img {
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
-  bottom: 8px;
   width: 100%;
   text-align: center;
 }
@@ -514,6 +614,8 @@ img {
   padding: 8px 12px;
   position: absolute;
   top: 0;
+  height: 100px;
+  width: 100%;
 }
 
 /* The dots/bullets/indicators */
@@ -521,6 +623,7 @@ img {
   height: 15px;
   width: 15px;
   margin: 0 2px;
+  margin-top: 20px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
